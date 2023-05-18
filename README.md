@@ -2,7 +2,7 @@
 
 The idea behind ComfyLatentImageIO is a way to store a latent tensor that has been encoded by a VAE for use in stable diffusion workflows, while being a regular image format that can be easily distinguisable on a computer, and shared online, and viewed, without any extra tools to process a tensor on image browsers and users CPUs. 
 
-## Cons
+## Pros
 - Easily manageable with a image of what they represent
 - Easily shareable in the community and retaining the integrity of what they represent
 - Image can still store workflow/prompt data as well
