@@ -7,6 +7,8 @@ The idea behind ComfyLatentImageIO is a way to store a latent tensor that has be
 - Easily shareable in the community and retaining the integrity of what they represent
 - Image can still store workflow/prompt data as well
 - Image can be viewed on cross-platofrm easily without preparation
+- Can be used in web platforms without special handling
+- Can be used directly in other DCC apps, especially when PNG
 
 ## Cons
 - Slightly larger than a raw safetensors.latent image itself (when webp)
