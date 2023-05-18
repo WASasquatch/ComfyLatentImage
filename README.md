@@ -10,6 +10,7 @@ The idea behind ComfyLatentImageIO is a way to store a latent tensor that has be
 
 ## Cons
 - Slightly larger than a raw safetensors.latent image itself.
+- Only requires ComfyUI to handle new format
 - ???
 
 ## Usage
