@@ -32,13 +32,15 @@ tensor = safetensor["latent_tensor"]
 image = Image.open("/content/ComfyUI2_00001_.jpg")
 print("Tensor Shape:", tensor.shape)
 
+# Output path and file
 latent_image_file = 'image.latent.png'
 
+# Save latent embedded image
 comfyio = ComfyLatentImageIO(mdim=1024, format='png')
-comfyio.save(tensor, image, latent_image_file, optimize_png=True)
+comfyio.save(tensor, image, latent_image_file, optimize_png=False)
 comfylatent = Image.open(latent_image_file)
 
-# Example Load usage
+# Load tensor from latent embedded image
 extracted_tensor = comfyio.load(comfylatent)
 print("Extracted Tensor Shape:", extracted_tensor.shape)
 ```
