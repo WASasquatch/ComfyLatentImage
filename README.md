@@ -17,9 +17,9 @@ tensor = safetensor["latent_tensor"]
 image = Image.open("/content/ComfyUI2_00001_.jpg")
 print("Tensor Shape:", tensor.shape)
 
-image_path = 'image.latent.webp'
-ComfyLatentImage.saveComfyLatent(tensor, image, image_path, 512)
-comfylatent = Image.open(image_path)
+filename = 'image.latent.png'
+ComfyLatentImage.saveComfyLatent(tensor, image, filename, 512, 'png')
+comfylatent = Image.open(filename)
 
 # Example Load usage
 extracted_tensor = ComfyLatentImage.loadComfyLatent(comfylatent)
