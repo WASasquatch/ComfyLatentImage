@@ -23,5 +23,5 @@ comfylatent = Image.open(image_path)
 
 # Example Load usage
 extracted_tensor = ComfyLatentImage.loadComfyLatent(comfylatent)
-print("Extracted Tensor Shape:", tensor.shape)
+print("Extracted Tensor Shape:", extracted_tensor['latent_tensor'].shape)
 ```
