@@ -9,7 +9,7 @@ import piexif
 import zipfile
 from io import BytesIO
 
-from ComfyImage import ComfyLatentImage
+from ComfyImage import ComfyLatentImageIO
 
 # Input Data
 safetensor = safetensors.torch.load_file("/content/ComfyUI_00044_.latent")
@@ -17,11 +17,18 @@ tensor = safetensor["latent_tensor"]
 image = Image.open("/content/ComfyUI2_00001_.jpg")
 print("Tensor Shape:", tensor.shape)
 
-filename = 'image.latent.png'
-ComfyLatentImage.saveComfyLatent(tensor, image, filename, 512, 'png')
-comfylatent = Image.open(filename)
+# Output path and filename
+latent_image_file = 'image.latent.png'
 
-# Example Load usage
-extracted_tensor = ComfyLatentImage.loadComfyLatent(comfylatent)
+# Save image with latent embedded
+comfyio = ComfyLatentImageIO(mdim=1024, format='png')
+comfyio.save(tensor, image, latent_image_file)
+
+# Load embedded latent image
+comfylatent = Image.open(latent_image_file)
+
+# Extract latent tensor
+extracted_tensor = comfyio.load(comfylatent)
 print("Extracted Tensor Shape:", extracted_tensor['latent_tensor'].shape)
+
 ```
