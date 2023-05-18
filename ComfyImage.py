@@ -6,10 +6,12 @@ import os
 from io import BytesIO
 
 
-class ComfyLatentImage():
+class ComfyLatentImageIO():
+    def __init__(self, mdim=1280, format='webp'):
+        self.mdim = mdim
+        self.format = format
 
-    @staticmethod
-    def saveComfyLatent(tensor, image, image_path, mdim=1280, format='webp'):
+    def save(self, tensor, image, image_path, mdim=1280, format='webp'):
         tensor = {"latent_tensor": tensor}
         tensor_bytes = safetensors.torch.save(tensor)
         compressed_data = BytesIO()
@@ -40,8 +42,7 @@ class ComfyLatentImage():
         else:
             raise ValueError("Invalid file extension. Only '.webp' and '.png' extensions are supported.")
 
-    @staticmethod
-    def loadComfyLatent(image):
+    def load(self, image):
         exif_data = piexif.load(image.info["exif"])
         if piexif.ExifIFD.UserComment in exif_data["Exif"]:
             compressed_data = exif_data["Exif"][piexif.ExifIFD.UserComment]
