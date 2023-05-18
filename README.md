@@ -12,8 +12,8 @@ from io import BytesIO
 from ComfyImage import ComfyLatentImage
 
 # Input Data
-safetensor = safetensors.torch.load_file("/content/ComfyUI_00044_.latent")
-tensor = safetensor["latent_tensor"]
+safetensor = safetensors.torch.load_file("ComfyUi_not_WAS-NS.latent")
+tensor = safetensor["latent_tensor"] # for testing, select tensor from comfys latent
 image = Image.open("input_image.jpg")
 print("Tensor Shape:", tensor.shape)
 
