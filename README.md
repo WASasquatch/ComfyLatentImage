@@ -1,4 +1,4 @@
-# ComfyLatentImage
+# ComfyLatentImageIO
 
 ## Usage
 
