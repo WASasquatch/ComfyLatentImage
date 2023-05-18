@@ -18,7 +18,7 @@ image = Image.open("input_image.jpg")
 print("Tensor Shape:", tensor.shape)
 
 image_path = 'image.latent.webp'
-ComfyLatentImage.saveComfyLatent({"latent_tensor": tensor}, image, image_path)
+ComfyLatentImage.saveComfyLatent({"latent_tensor": tensor}, image, image_path, mdim=1024)
 comfylatent = Image.open(image_path)
 
 # Example Load usage
