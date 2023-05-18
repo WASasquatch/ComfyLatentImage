@@ -9,7 +9,7 @@ class ComfyLatentImage():
 
     @staticmethod
     def saveComfyLatent(tensor, image, image_path, mdim=1280):
-        tensor_dict = {"latent_tensor": tensor}
+        tensor = {"latent_tensor": tensor}
         tensor_bytes = safetensors.torch.save(tensor)
         compressed_data = BytesIO()
         with zipfile.ZipFile(compressed_data, mode='w') as archive:
