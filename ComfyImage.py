@@ -11,7 +11,9 @@ class ComfyLatentImageIO():
         self.mdim = mdim
         self.format = format
 
-    def save(self, tensor, image, image_path, mdim=1280, format='webp', optimize_png=False):
+    def save(self, tensor, image, image_path, mdim=None, format=None, optimize_png=False):
+        mdim = mdim if mdim else self.mdim
+        format = format if format else self.format
         tensor = {"latent_tensor": tensor}
         tensor_bytes = safetensors.torch.save(tensor)
         compressed_data = BytesIO()
